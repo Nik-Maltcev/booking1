@@ -1,0 +1,73 @@
+# Git
+.git
+.gitignore
+.gitattributes
+.github
+
+# IDE and Editor
+.vscode
+.idea
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+phpStormSettings.jar
+
+# Documentation
+docs
+*.md
+!README.md
+
+# Development and Testing
+tests
+phpunit.xml.dist
+phpstan.neon
+phpstan-baseline.neon
+.php-cs-fixer.dist.php
+phpdoc.dist.xml
+tox.ini
+build.xml
+.readthedocs.yml
+
+# CI/CD
+ci
+.github
+
+# Kiro specs
+.kiro
+
+# Phive
+.phive
+
+# Phing tasks
+phing-tasks
+
+# Local configuration (will be generated)
+config/config.php
+config/config.devel.php
+
+# Uploads (will be created at runtime)
+uploads/*
+!uploads/.htaccess
+!uploads/index.html
+Web/uploads/*
+!Web/uploads/.htaccess
+
+# Logs
+*.log
+/var/log
+
+# Cache
+tpl_c
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Composer development dependencies
+vendor/phpunit
+vendor/squizlabs

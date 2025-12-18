@@ -16,6 +16,41 @@ class ru_ru extends en_gb
     /**
      * @return array
      */
+    protected function _LoadDates()
+    {
+        $dates = [];
+
+        $dates['general_date'] = 'd.m.Y';
+        $dates['general_datetime'] = 'd.m.Y H:i:s';
+        $dates['short_datetime'] = 'd.m.y H:i';
+        $dates['schedule_daily'] = 'l, d.m.y';
+        $dates['reservation_email'] = 'd.m.Y @ H:i (e)';
+        $dates['res_popup'] = 'D, d.m H:i';
+        $dates['res_popup_time'] = 'H:i';
+        $dates['short_reservation_date'] = 'd.m.y H:i';
+        $dates['dashboard'] = 'D, d.m.Y H:i';
+        $dates['period_time'] = 'H:i';
+        $dates['timepicker'] = 'H:i';
+        $dates['mobile_reservation_date'] = 'd.m H:i';
+        $dates['general_date_js'] = 'dd.mm.yy';
+        $dates['general_time_js'] = 'HH:mm';
+        $dates['timepicker_js'] = 'H:i';
+        $dates['momentjs_datetime'] = 'D.M.YY HH:mm';
+        $dates['calendar_time'] = 'HH:mm';
+        $dates['calendar_dates'] = 'd M';
+        $dates['embedded_date'] = 'D d';
+        $dates['embedded_time'] = 'H:i';
+        $dates['embedded_datetime'] = 'd.m H:i';
+        $dates['report_date'] = '%d.%m';
+
+        $this->Dates = $dates;
+
+        return $this->Dates;
+    }
+
+    /**
+     * @return array
+     */
     protected function _LoadStrings()
     {
         $strings = [];
@@ -839,8 +874,229 @@ class ru_ru extends en_gb
         //Schedule Resource Permissions
         $strings['NoResourcePermissions'] = 'Невозможно просмотреть детали бронирования, потому что у вас нет разрешений на ни один из ресурсов в этом бронировании';
         //End Schedule Resource Permissions
-        //END NEEDS CHECKING
 
+        // Additional missing translations
+        $strings['SignInWith'] = 'Войти через';
+        $strings['AvailableAt'] = 'Доступно в';
+        $strings['ResourceMinNoticeUpdate'] = 'Бронирование должно быть обновлено не менее чем за %s до времени начала';
+        $strings['ResourceMinNoticeNoneUpdate'] = 'Бронирование может быть обновлено до текущего времени';
+        $strings['ResourceMinNoticeDelete'] = 'Бронирование должно быть удалено не менее чем за %s до времени начала';
+        $strings['ResourceMinNoticeNoneDelete'] = 'Бронирование может быть удалено до текущего времени';
+        $strings['ConfigurationEnvWarning'] = 'Некоторые значения конфигурации переопределяются переменными окружения или файлом <code>.env</code>. Изменения возможны только при удалении соответствующих переменных окружения.';
+        $strings['RowsImported'] = 'Импортировано строк';
+        $strings['RowsSkipped'] = 'Пропущено строк';
+        $strings['Columns'] = 'Столбцы';
+        $strings['ResourceMinNoticeAddCsv'] = 'Минимальное уведомление о добавлении бронирования';
+        $strings['ResourceMinNoticeUpdateCsv'] = 'Минимальное уведомление об обновлении бронирования';
+        $strings['ResourceMinNoticeDeleteCsv'] = 'Минимальное уведомление об удалении бронирования';
+        $strings['ReasonText'] = 'Текст причины';
+        $strings['NoAvailableMatchingTimes'] = 'Нет доступного времени, соответствующего вашему поиску';
+        $strings['Schedules'] = 'Расписания';
+        $strings['NotifyUser'] = 'Уведомить пользователя';
+        $strings['UpdateUsersOnImport'] = 'Обновить существующего пользователя, если email уже существует';
+        $strings['UpdateResourcesOnImport'] = 'Обновить существующие ресурсы, если имя уже существует';
+        $strings['Reject'] = 'Отклонить';
+        $strings['CheckingAvailability'] = 'Проверка доступности';
+        $strings['CreditPurchaseNotEnabled'] = 'Вы не включили возможность покупки кредитов';
+        $strings['CreditsEachCost1'] = 'Каждый';
+        $strings['CreditsEachCost2'] = 'кредит(ов) стоит';
+        $strings['CreditsCount'] = 'Количество кредитов';
+        $strings['CreditsCost'] = 'Стоимость';
+        $strings['Currency'] = 'Валюта';
+        $strings['PayPalClientId'] = 'ID клиента';
+        $strings['PayPalSecret'] = 'Секрет';
+        $strings['PayPalEnvironment'] = 'Окружение';
+        $strings['Sandbox'] = 'Песочница';
+        $strings['Live'] = 'Рабочий';
+        $strings['StripePublishableKey'] = 'Публичный ключ';
+        $strings['StripeSecretKey'] = 'Секретный ключ';
+        $strings['CreditsUpdated'] = 'Стоимость кредитов обновлена';
+        $strings['GatewaysUpdated'] = 'Платежные шлюзы обновлены';
+        $strings['PurchaseSummary'] = 'Сводка покупки';
+        $strings['EachCreditCosts'] = 'Каждый кредит стоит';
+        $strings['Checkout'] = 'Оформить заказ';
+        $strings['Quantity'] = 'Количество';
+        $strings['CreditPurchase'] = 'Покупка кредитов';
+        $strings['EmptyCart'] = 'Ваша корзина пуста.';
+        $strings['BuyCredits'] = 'Купить кредиты';
+        $strings['CreditsPurchased'] = 'кредитов куплено.';
+        $strings['ViewYourCredits'] = 'Посмотреть ваши кредиты';
+        $strings['TryAgain'] = 'Попробовать снова';
+        $strings['PurchaseFailed'] = 'Возникла проблема при обработке вашего платежа.';
+        $strings['NoteCreditsPurchased'] = 'Кредиты куплены';
+        $strings['CreditsUpdatedLog'] = 'Кредиты обновлены %s';
+        $strings['ReservationCreatedLog'] = 'Бронирование создано. Номер ссылки %s';
+        $strings['ReservationUpdatedLog'] = 'Бронирование обновлено. Номер ссылки %s';
+        $strings['ReservationDeletedLog'] = 'Бронирование удалено. Номер ссылки %s';
+        $strings['BuyMoreCredits'] = 'Купить больше кредитов';
+        $strings['Transactions'] = 'Транзакции';
+        $strings['Cost'] = 'Стоимость';
+        $strings['PaymentGateways'] = 'Платежные шлюзы';
+        $strings['CreditHistory'] = 'История кредитов';
+        $strings['TransactionHistory'] = 'История транзакций';
+        $strings['Date'] = 'Дата';
+        $strings['Note'] = 'Примечание';
+        $strings['CreditsBefore'] = 'Кредитов до';
+        $strings['CreditsAfter'] = 'Кредитов после';
+        $strings['TransactionFee'] = 'Комиссия транзакции';
+        $strings['InvoiceNumber'] = 'Номер счета';
+        $strings['TransactionId'] = 'ID транзакции';
+        $strings['Gateway'] = 'Шлюз';
+        $strings['GatewayTransactionDate'] = 'Дата транзакции шлюза';
+        $strings['Refund'] = 'Возврат';
+        $strings['IssueRefund'] = 'Оформить возврат';
+        $strings['RefundIssued'] = 'Возврат успешно оформлен';
+        $strings['RefundAmount'] = 'Сумма возврата';
+        $strings['AmountRefunded'] = 'Возвращено';
+        $strings['FullyRefunded'] = 'Полностью возвращено';
+        $strings['YourCredits'] = 'Ваши кредиты';
+        $strings['PayWithCard'] = 'Оплатить картой';
+        $strings['or'] = 'или';
+        $strings['CreditsRequired'] = 'Требуется кредитов';
+        $strings['AddToGoogleCalendar'] = 'Добавить в Google';
+        $strings['Image'] = 'Изображение';
+        $strings['ChooseOrDropFile'] = 'Выберите файл или перетащите его сюда';
+        $strings['SlackBookResource'] = 'Забронировать %s сейчас';
+        $strings['SlackBookNow'] = 'Забронировать сейчас';
+        $strings['SlackNotFound'] = 'Не удалось найти ресурс с таким именем. Нажмите "Забронировать сейчас", чтобы начать новое бронирование.';
+        $strings['AutomaticallyAddToGroup'] = 'Автоматически добавлять новых пользователей в эту группу';
+        $strings['GroupAutomaticallyAdd'] = 'Авто добавление';
+        $strings['TermsOfService'] = 'Условия использования';
+        $strings['EnterTermsManually'] = 'Ввести условия вручную';
+        $strings['LinkToTerms'] = 'Ссылка на условия';
+        $strings['UploadTerms'] = 'Загрузить условия';
+        $strings['RequireTermsOfServiceAcknowledgement'] = 'Требовать подтверждение условий использования';
+        $strings['UponReservation'] = 'При бронировании';
+        $strings['UponRegistration'] = 'При регистрации';
+        $strings['ViewTerms'] = 'Просмотреть условия использования';
+        $strings['IAccept'] = 'Я принимаю';
+        $strings['TheTermsOfService'] = 'условия использования';
+        $strings['DisplayPage'] = 'Страница отображения';
+        $strings['AvailableAllYear'] = 'Весь год';
+        $strings['Availability'] = 'Доступность';
+        $strings['AvailableBetween'] = 'Доступно между';
+        $strings['ConcurrentYes'] = 'Ресурсы могут быть забронированы несколькими людьми одновременно';
+        $strings['ConcurrentNo'] = 'Ресурсы не могут быть забронированы несколькими людьми одновременно';
+        $strings['ScheduleAvailabilityEarly'] = 'Это расписание еще не доступно. Оно будет доступно';
+        $strings['ScheduleAvailabilityLate'] = 'Это расписание больше не доступно. Оно было доступно';
+        $strings['ResourceImages'] = 'Изображения ресурса';
+        $strings['FullAccess'] = 'Полный доступ';
+        $strings['ViewOnly'] = 'Только просмотр';
+        $strings['Purge'] = 'Очистить';
+        $strings['UsersWillBeDeleted'] = 'пользователей будет удалено';
+        $strings['BlackoutsWillBeDeleted'] = 'периодов блокировки будет удалено';
+        $strings['ReservationsWillBePurged'] = 'бронирований будет очищено';
+        $strings['ReservationsWillBeDeleted'] = 'бронирований будет удалено';
+        $strings['PermanentlyDeleteUsers'] = 'Навсегда удалить пользователей, которые не входили с';
+        $strings['DeleteBlackoutsBefore'] = 'Удалить периоды блокировки до';
+        $strings['DeletedReservations'] = 'Удаленные бронирования';
+        $strings['DeleteReservationsBefore'] = 'Удалить бронирования до';
+        $strings['SwitchToACustomLayout'] = 'Переключиться на пользовательский макет';
+        $strings['SwitchToAStandardLayout'] = 'Переключиться на стандартный макет';
+        $strings['ThisScheduleUsesACustomLayout'] = 'Это расписание использует пользовательский макет';
+        $strings['ThisScheduleUsesAStandardLayout'] = 'Это расписание использует стандартный макет';
+        $strings['SwitchLayoutWarning'] = 'Вы уверены, что хотите изменить тип макета? Это удалит все существующие слоты.';
+        $strings['DeleteThisTimeSlot'] = 'Удалить этот временной слот?';
+        $strings['Refresh'] = 'Обновить';
+        $strings['ViewReservation'] = 'Просмотреть бронирование';
+        $strings['PublicId'] = 'Публичный ID';
+        $strings['Public'] = 'Публичный';
+        $strings['AtomFeedTitle'] = '%s Бронирования';
+        $strings['DefaultStyle'] = 'Стиль по умолчанию';
+        $strings['Standard'] = 'Стандартный';
+        $strings['Wide'] = 'Широкий';
+        $strings['Tall'] = 'Высокий';
+        $strings['EmailTemplate'] = 'Шаблон email';
+        $strings['SelectEmailTemplate'] = 'Выберите шаблон email';
+        $strings['ReloadOriginalContents'] = 'Перезагрузить оригинальное содержимое';
+        $strings['UpdateEmailTemplateSuccess'] = 'Шаблон email обновлен';
+        $strings['UpdateEmailTemplateFailure'] = 'Не удалось обновить шаблон email. Проверьте права на запись в директорию.';
+        $strings['BulkResourceDelete'] = 'Массовое удаление ресурсов';
+        $strings['NewVersion'] = 'Новая версия!';
+        $strings['WhatsNew'] = 'Что нового?';
+        $strings['OnlyViewedCalendar'] = 'Это расписание можно просматривать только в режиме календаря';
+        $strings['Grid'] = 'Сетка';
+        $strings['NoReservationsFound'] = 'Бронирования не найдены';
+        $strings['EmailReservation'] = 'Отправить бронирование по email';
+        $strings['AdHocMeeting'] = 'Незапланированная встреча';
+        $strings['NextReservation'] = 'Следующее бронирование';
+        $strings['CurrentReservation'] = 'Текущее бронирование';
+        $strings['MissedCheckin'] = 'Пропущена регистрация';
+        $strings['MissedCheckout'] = 'Пропущен выход';
+        $strings['Utilization'] = 'Использование';
+        $strings['SpecificTime'] = 'Конкретное время';
+        $strings['ReservationSeriesEndingPreference'] = 'Когда моя серия повторяющихся бронирований заканчивается';
+        $strings['NotAttending'] = 'Не участвую';
+        $strings['ViewAvailability'] = 'Просмотреть доступность';
+        $strings['ReservationDetails'] = 'Детали бронирования';
+        $strings['StartTime'] = 'Время начала';
+        $strings['EndTime'] = 'Время окончания';
+        $strings['New'] = 'Новый';
+        $strings['Updated'] = 'Обновлено';
+        $strings['Custom'] = 'Пользовательский';
+        $strings['AddDate'] = 'Добавить дату';
+        $strings['RepeatOn'] = 'Повторять в';
+        $strings['ScheduleConcurrentMaximum'] = 'Максимум <b>%s</b> ресурсов может быть забронировано одновременно';
+        $strings['ScheduleConcurrentMaximumNone'] = 'Нет ограничений на количество одновременно забронированных ресурсов';
+        $strings['ScheduleMaximumConcurrent'] = 'Максимальное количество одновременно забронированных ресурсов';
+        $strings['ScheduleMaximumConcurrentNote'] = 'При установке общее количество ресурсов, которые могут быть забронированы одновременно для этого расписания, будет ограничено.';
+        $strings['ScheduleResourcesPerReservationMaximum'] = 'Каждое бронирование ограничено максимум <b>%s</b> ресурсами';
+        $strings['ScheduleResourcesPerReservationNone'] = 'Нет ограничений на количество ресурсов в бронировании';
+        $strings['ScheduleResourcesPerReservation'] = 'Максимальное количество ресурсов в бронировании';
+        $strings['ResourceConcurrentReservations'] = 'Разрешить %s одновременных бронирований';
+        $strings['ResourceConcurrentReservationsNone'] = 'Не разрешать одновременные бронирования';
+        $strings['AllowConcurrentReservations'] = 'Разрешить одновременные бронирования';
+        $strings['ResourceDisplayInstructions'] = 'Ресурс не выбран. URL для отображения ресурса можно найти в Управлении приложением, Ресурсы. Ресурс должен быть публично доступен.';
+        $strings['Owner'] = 'Владелец';
+        $strings['MaximumConcurrentReservations'] = 'Максимум одновременных бронирований';
+        $strings['NotifyUsers'] = 'Уведомить пользователей';
+        $strings['Message'] = 'Сообщение';
+        $strings['AllUsersWhoHaveAReservationInTheNext'] = 'Все, у кого есть бронирование в следующие';
+        $strings['ChangeResourceStatus'] = 'Изменить статус ресурса';
+        $strings['UpdateGroupsOnImport'] = 'Обновить существующую группу, если имя совпадает';
+        $strings['GroupsImportInstructions'] = '<ul><li>Файл должен быть в формате CSV.</li><li>Имя обязательно.</li><li>Списки участников должны быть разделены запятыми списками email.</li><li>Пустые списки участников при обновлении групп оставят участников без изменений.</li><li>Списки разрешений должны быть разделены запятыми списками имен ресурсов.</li><li>Пустые списки разрешений при обновлении групп оставят разрешения без изменений.</li><li>Используйте предоставленный шаблон в качестве примера.</li></ul>';
+        $strings['PhoneRequired'] = 'Телефон обязателен';
+        $strings['OrganizationRequired'] = 'Организация обязательна';
+        $strings['PositionRequired'] = 'Должность обязательна';
+        $strings['GroupMembership'] = 'Членство в группе';
+        $strings['AvailableGroups'] = 'Доступные группы';
+        $strings['CheckingAvailabilityError'] = 'Невозможно получить доступность ресурса - слишком много ресурсов';
+        $strings['ScanToSchedule'] = 'Сканировать для планирования';
+        $strings['MaintenanceNotice'] = 'В настоящее время проводится техническое обслуживание. Мы скоро вернемся.';
+        $strings['MoreResourceActions'] = 'Дополнительные действия с ресурсом';
+        $strings['Other'] = 'Другое';
+        $strings['Check'] = 'Проверить';
+        $strings['PermissionType'] = 'Тип разрешения';
+        $strings['NoResourcesToView'] = 'Нет доступных ресурсов';
+        $strings['Info'] = 'Показана страница _PAGE_ из _PAGES_ из _MAX_';
+        $strings['LengthMenu'] = 'Показать _MENU_ записей на странице';
+
+        // Additional error messages
+        $strings['MinNoticeErrorUpdate'] = 'Изменение этого бронирования требует предварительного уведомления. Бронирования до %s не могут быть изменены.';
+        $strings['MinNoticeErrorDelete'] = 'Удаление этого бронирования требует предварительного уведомления. Бронирования до %s не могут быть удалены.';
+        $strings['InstancesOverlapRule'] = 'Некоторые экземпляры серии бронирований перекрываются:';
+        $strings['TermsOfServiceError'] = 'Вы должны принять Условия использования';
+        $strings['UserNotFound'] = 'Пользователь не найден';
+        $strings['ScheduleAvailabilityError'] = 'Это расписание доступно между %s и %s';
+        $strings['ReservationNotFoundError'] = 'Бронирование не найдено';
+        $strings['ReservationNotAvailable'] = 'Бронирование недоступно';
+        $strings['TitleRequiredRule'] = 'Название бронирования обязательно';
+        $strings['DescriptionRequiredRule'] = 'Описание бронирования обязательно';
+        $strings['WhatCanThisGroupManage'] = 'Чем может управлять эта группа?';
+        $strings['ReservationParticipationActivityPreference'] = 'Когда кто-то присоединяется или покидает мое бронирование';
+        $strings['RegisteredAccountRequired'] = 'Только зарегистрированные пользователи могут бронировать';
+        $strings['ScriptUrlWarning'] = 'Ваша настройка <em>script.url</em> может быть неправильной. Сейчас она <strong>%s</strong>, мы думаем, что должна быть <strong>%s</strong>';
+
+        // Additional email subjects
+        $strings['AccountCreatedSubject'] = 'Данные вашего аккаунта %s';
+        $strings['ReservationSeriesEndingSubject'] = 'Серия бронирований для %s заканчивается %s';
+        $strings['ReservationParticipantAccept'] = '%s принял ваше приглашение на бронирование %s на %s';
+        $strings['ReservationParticipantDecline'] = '%s отклонил ваше приглашение на бронирование %s на %s';
+        $strings['ReservationParticipantJoin'] = '%s присоединился к вашему бронированию %s на %s';
+        $strings['ReservationAvailableSubject'] = '%s доступен %s';
+        $strings['ResourceStatusChangedSubject'] = 'Доступность %s изменилась';
+        $strings['ReservationShareSubject'] = '%s поделился бронированием для %s';
+        $strings['ParticipantUpdatedSubjectWithResource'] = '%s обновил бронирование для %s';
 
         $this->Strings = $strings;
 

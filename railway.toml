@@ -1,0 +1,13 @@
+# Railway Configuration for LibreBooking
+# https://docs.railway.app/reference/config-as-code
+
+[build]
+builder = "dockerfile"
+dockerfilePath = "Dockerfile"
+
+[deploy]
+startCommand = "apache2-foreground"
+healthcheckPath = "/Web/"
+healthcheckTimeout = 100
+restartPolicyType = "on_failure"
+restartPolicyMaxRetries = 3
